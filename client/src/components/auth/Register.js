@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import { register } from '../actions/auth';
+import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
 const Register = ({ register, isAuthenticated }) => {
@@ -96,4 +96,6 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { register })(Register);
+const mapDispatchToProps = { register };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
